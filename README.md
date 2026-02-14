@@ -1,115 +1,59 @@
-🌿 Pistachio Species Classification using MLP Neural Network
-📌 Project Overview
+## 🌿 Pistachio Species Classification with Neural Network
+## 📌 Project Summary
 
-This project classifies two pistachio species — Kirmizi and Siirt — using morphological features and a Multi-Layer Perceptron (MLP) neural network.
+This project implements a binary classification model to distinguish between Kirmizi and Siirt pistachio species using morphological features.
 
-The dataset contains 2148 samples with 16 numerical features extracted from pistachio images.
+A Multi-Layer Perceptron (MLP) neural network was trained and evaluated with proper preprocessing and stratified splitting.
 
-The goal is to build a robust binary classification model with strong generalization performance.
+## 📊 Dataset
 
-📊 Dataset Information
+2148 samples
 
-Total Samples: 2148
+16 numerical morphological features
 
-Features: 16 morphological attributes
+Binary target variable
 
-Target Classes:
+Stratified 80/20 train-test split
 
-0 → Kirmizi_Pistachio
+## ⚙️ Methodology
 
-1 → Siirt_Pistachio
+Data cleaning & label encoding
 
-Train/Test Split: 80/20 (Stratified)
+Feature scaling using StandardScaler
 
-⚙️ Preprocessing Steps
+MLPClassifier with hidden layers (32,16)
 
-Removed missing class labels
+Model evaluation using accuracy, precision, recall, F1-score
 
-Cleaned label formatting
+Confusion matrix analysis
 
-Encoded categorical target into numerical values
+Model persistence using joblib
 
-Applied StandardScaler for feature normalization
-
-Used stratified splitting to preserve class distribution
-
-🧠 Model Architecture
-
-Model: MLPClassifier
-
-Hidden Layers: (32, 16)
-
-Activation Function: ReLU
-
-Max Iterations: 500
-
-Random State: 42
-
-📈 Results
+## 📈 Performance
 
 Test Accuracy: 90.9%
 
-Classification Report
+Balanced precision and recall across both classes
 
-Kirmizi Precision: 0.92
+Only 39 misclassifications out of 430 test samples
 
-Kirmizi Recall: 0.92
+The model demonstrates strong class separability and stable generalization performance.
 
-Siirt Precision: 0.89
+## 💾 Model Files
 
-Siirt Recall: 0.90
+The trained model and scaler are stored in the models/ directory:
 
-The confusion matrix shows strong class separation with minimal misclassification.
-
-Total test samples: 430
-Total misclassifications: 39
-
-📂 Project Structure
-pistachio-species-classification/
-│
-├── data/
-│   └── Pistachio_28_Features_Dataset.xlsx
-│
-├── models/
-│   ├── egitilmis_model.pkl
-│   └── veri_olcekleme_araci.pkl
-│
-├── notebook/
-│   └── pistachio_classification.ipynb
-│
-├── requirements.txt
-└── README.md
-
-💾 Saved Model
-
-The trained model and scaler are saved in the models/ directory.
-
-You can load them directly without retraining:
-
-import joblib
-
-model = joblib.load("models/egitilmis_model.pkl")
-scaler = joblib.load("models/veri_olcekleme_araci.pkl")
-
-▶️ How to Run
-
-Install required libraries:
-
-pip install -r requirements.txt
+egitilmis_model.pkl
+veri_olcekleme_araci.pkl
 
 
-Run the notebook
-or
+They can be loaded directly without retraining.
 
-Use the saved model for inference
-
-🛠 Technologies Used
+## 🛠 Technologies
 
 Python
 
 Pandas
-
-NumPy
 
 Scikit-learn
 
@@ -119,7 +63,6 @@ Seaborn
 
 Joblib
 
-💡 Key Insight
+## 🚀 Key Takeaway
 
-Morphological features provide strong discriminative power when combined with neural network models.
-The model achieves high accuracy with balanced precision and recall across both classes.
+Morphological features combined with neural network models provide highly effective discrimination between pistachio species.
